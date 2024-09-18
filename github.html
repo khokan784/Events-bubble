@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="secret-info">My secret info</h1>
+    <input id="deleted-confirm" type="text" placeholder="Please type deleted">
+    <button id="btn-deleted" disabled>Deleted</button>
+    <script>
+        document.getElementById('deleted-confirm').addEventListener('keyup', function(event){
+            const text = event.target.value
+            console.log(text)
+            const deletedButton = document.getElementById('btn-deleted')
+            if(text === 'deleted'){
+                deletedButton.removeAttribute('disabled')
+            }
+            else{
+                deletedButton.setAttribute('disabled', true)
+            }
+        })
+        document.getElementById('btn-deleted').addEventListener('click', function(){
+            const secret = document.getElementById('secret-info')
+            secret.style.display = 'none'
+        })
+    </script>
+</body>
+</html>
